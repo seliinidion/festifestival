@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Info</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+</style>
+
+</head>
+<body>
+
+  <!-- mouse light -->
+  <div class="light"></div> 
+
+<h1>INFO</h1>
+
+
+
+<nav class="navMenu">
+  <a href="index.php">Etusivu</a>
+  <a href="schedule.php">Ohjelmisto</a>
+  <a href="info.html">Info</a>
+  <a href="watchlist.php">Oma lista</a>
+  <div class="dot"></div>
+</nav>
+
+<main class="content">
+
+
+<p>Festarialue: Rantatie 5, 00100 Helsinki</p>
+<p>Julkinen liikenne: raitiovaunu 8, bussit 55 ja 103</p>
+<p>Portit aukeavat klo 15:00</p>
+
+
+<footer class="site-footer">
+  <p><strong>FESTIFESTIVAL</strong></p>
+  <p>Ota yhteyttä: <a href="mailto:info@festifestival.com">info@festifestival.com</a></p>
+  <p>Seuraa meitä: 
+    <a href="#">Facebook</a> | 
+    <a href="#">Instagram</a> | 
+    <a href="#">Twitter</a>
+  </p>
+  <p class="copyright">&copy; 2025 Festifestival. Kaikki oikeudet pidätetään.</p>
+</footer>
+
+<!-- mouse light -->
+   <script>
+    const light = document.querySelector('.light');
+
+    window.addEventListener('mousemove', e => {
+      light.style.top = e.clientY + 'px';
+      light.style.left = e.clientX + 'px';
+    });
+  </script>
+
+</main>
+
+</body>
+</html>

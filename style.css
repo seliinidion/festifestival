@@ -1,0 +1,312 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2em;
+  background: #000000;
+  color: #ffffff;
+  position: relative;        
+  margin: 0;
+  padding: 0;
+}
+
+/*
+/*Banner
+.header-banner {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+}
+*/
+
+.content {
+  padding: 2em;
+}
+
+/*FONT*/
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* MOUSE FLASHLIGHT */
+.light {
+  position: fixed;
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 80%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+
+h1{
+  color: white;
+  font-size: 10rem;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: clamp(2rem, 8vw, 10rem);
+  line-height: 1.1;
+  text-align: center;
+  font-family: "Michroma", sans-serif;
+}
+
+.site-footer a {
+  color: #d33416;  
+}
+
+.site-footer p strong {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+/* NAV */
+.navMenu {
+  position: relative;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.navMenu a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 20px;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.navMenu a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background: #d33416;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.navMenu a:hover::after {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.navMenu a:hover {
+  color: #d33416;
+}
+
+/* SCHEDULE */
+.artist {
+  padding: 3px;
+}
+
+/* ADD BUTTON */
+.add-button {
+  background-color: #d33416;
+  color: white;
+  border: none;
+  padding: 0.2em 0.6em;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+
+.add-button:hover {
+  background-color: #333;
+}
+
+a.own-link {
+  color: #d33416;
+}
+
+/* EI TOIMIII */
+.artists-list {
+  margin: 50px 40px 50px 40px;
+}
+
+
+/* WATCHLIST */
+a.back-link {
+  color: #d33416;
+}
+a.back-link:hover {
+  text-decoration: underline; 
+}
+
+.watchlist-artist {
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 auto;           
+  max-width: 600px;       
+  text-align: left;          
+}
+
+.watchlist-artist::before {
+  content: "★ ";
+  color: #d33416;          
+  font-size: 1.2rem;
+  margin-right: 0.5em;
+}
+
+
+/* REMOVE AND WATCHED BUTTON */
+.remove-button,
+.watched-button {
+  padding: 0.4em 0.8em;
+  font-size: 0.9em;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-left: 1em;
+  display: inline-block;
+  line-height: 1.2;
+  box-sizing: border-box;
+  color: white;
+  border: none;
+}
+
+/* REMOVE BUTTON */
+.remove-button {
+  background-color: #d33416;
+}
+.remove-button:hover {
+  background-color: #333;
+}
+
+/* WATCHED BUTTON*/
+.watched-button {
+  background-color: #4caf50;
+}
+.watched-button:hover {
+  background-color: #357a38;
+}
+
+
+/* SCHEDULE TABLE */
+.table {
+  background-color: #d33416;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 30px 25px;
+}
+
+.schedule-table th {
+  font-size: 2rem;
+  font-family: "Michroma", sans-serif;
+  color: #d33416; 
+  background-color: black;
+}
+
+.schedule-table td {
+  padding: 16px 12px;
+  border-radius: 8px;
+  color: #ffffff; 
+  background-color: black;
+  text-align: center;
+  vertical-align: top;
+}
+
+
+
+/* RESPONSIVE FOR SCHEDULE TABLE */
+@media (max-width: 768px) {
+  .schedule-table, 
+  .schedule-table thead, 
+  .schedule-table tbody, 
+  .schedule-table th, 
+  .schedule-table td, 
+  .schedule-table tr {
+    display: block;
+  }
+
+
+  .schedule-table thead tr {
+    display: none;
+  }
+
+
+  .schedule-table tr {
+    margin-bottom: 1.5em;
+    border: 1px solid #d33416;
+    border-radius: 8px;
+    background: #111;
+    padding: 10px;
+  }
+
+  .schedule-table td {
+    border: none;
+    padding-left: 50%;
+    position: relative;
+    text-align: left;
+    white-space: normal;
+  }
+
+
+  .schedule-table td::before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    content: attr(data-label);
+    color: #d33416;
+  }
+}
+
+/* MOBIILI STAGE LIST */
+@media (max-width: 768px) {
+  #artists-list {
+    margin: 1em;
+  }
+  .stage-block {
+    background: black;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  .stage-block h2 {
+    color: #d33416;
+    font-family: "Michroma", sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  .artist-block {
+    background: black;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .artist-block button.add-button {
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+}
