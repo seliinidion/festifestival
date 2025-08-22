@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 
-// Käyttäjäkohtainen tunniste cookiella
+// Personal cookie
 if(!isset($_COOKIE['user_id'])){
     $user_id = bin2hex(random_bytes(8));
     setcookie('user_id', $user_id, time()+60*60*24*365);
@@ -9,7 +9,7 @@ if(!isset($_COOKIE['user_id'])){
     $user_id = $_COOKIE['user_id'];
 }
 
-// Hae käyttäjän watchlist
+// Get user watchlist
 $sql = "SELECT a.id AS artist_id, a.name, t.stage, t.time
         FROM watchlist w
         JOIN artist a ON w.artist_id = a.id

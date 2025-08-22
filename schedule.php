@@ -43,7 +43,13 @@
 
   <?php
 require 'db.php';
-$user_id = 1; // later $_SESSION['user_id']
+
+if(!isset($_COOKIE['user_id'])){
+    $user_id = bin2hex(random_bytes(8));
+    setcookie('user_id', $user_id, time()+60*60*24*365);
+} else {
+    $user_id = $_COOKIE['user_id'];
+}
 
 // USERS WATCHLIST
 $watchlist = [];
@@ -58,11 +64,26 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $stmt->close();
+
+// GET WATCHED
+$watched = [];
+$sql2 = "SELECT artist_id FROM watched WHERE user_id = ?";
+$stmt2 = $conn->prepare($sql2);
+$stmt2->bind_param("s", $user_id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+while ($row = $result2->fetch_assoc()) {
+    $watched[] = $row['artist_id'];
+}
+$stmt2->close();
+
+
 $conn->close();
 ?>
 
 <script>
-  const watchlist = <?php echo json_encode($watchlist); ?>;
+const watchlist = <?php echo json_encode($watchlist); ?>;
+const watched = <?php echo json_encode($watched); ?>;
 </script>
 
 <script>
@@ -124,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const artistDiv = document.createElement('div');
             artistDiv.innerHTML = `<strong>${artist.name}</strong> (${artist.time})`;
 
-            if (!watchlist.includes(artist.id)) {
+            if (!watchlist.includes(artist.id) && !watched.includes(artist.id)) {
               const btn = document.createElement('button');
               btn.className = 'add-button';
               btn.textContent = '+';
@@ -166,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
           artistDiv.className = 'artist-block';
           artistDiv.innerHTML = `<strong>${artist.name}</strong> (${artist.time})`;
 
-          if (!watchlist.includes(artist.id)) {
+          if (!watchlist.includes(artist.id) && !watched.includes(artist.id)) {
             const btn = document.createElement('button');
             btn.className = 'add-button';
             btn.textContent = '+';
