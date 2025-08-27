@@ -151,7 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
               btn.textContent = '+';
               btn.addEventListener('click', e => {
                 e.preventDefault();
-                fetch(`add.php?id=${artist.id}`)
+fetch(`add.php?id=${artist.id}&name=${encodeURIComponent(artist.name)}`)
+
                   .then(response => {
                     if (response.ok) {
                       btn.style.visibility = 'hidden';
