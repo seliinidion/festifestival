@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
               btn.textContent = '+';
               btn.addEventListener('click', e => {
                 e.preventDefault();
-fetch(`add.php?id=${artist.id}&name=${encodeURIComponent(artist.name)}`)
+              fetch(`add.php?id=${artist.id}`)
 
                   .then(response => {
                     if (response.ok) {
